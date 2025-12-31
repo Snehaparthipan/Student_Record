@@ -26,7 +26,7 @@ function App() {
   
   async function Postuser() {
     try {
-      const res = await axios.post("https://student-record-plum.vercel.app/api/users", form)
+      const res = await axios.post("http://localhost:5000/api/users", form)
       alert("user send")
       setForm({ name: "", grade: "", subject: ""})
       setRefresh(!refresh)
@@ -38,7 +38,7 @@ function App() {
   }
   async function Getuser() {
     try {
-      const res = await axios.get("https://student-record-plum.vercel.app/api/all")
+      const res = await axios.get("https://student-record-plum.vercel.app/api/all",form)
       setData(res.data.data)
       console.log(res.data)
     } catch (error) {

@@ -12,7 +12,7 @@ const postUser = async (req, res) => {
       });
     }
 
-    const newUser = await User.save({ name, grade, subject });
+    const newUser = await User.create({ name, grade, subject });
 
     res.status(201).json({
       message: "User created",
