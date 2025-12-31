@@ -38,7 +38,7 @@ function App() {
   }
   async function Getuser() {
     try {
-      const res = await axios.get("https://student-record-plum.vercel.app/api/all",form)
+      const res = await axios.get("http://localhost:5000/api/all",form)
       setData(res.data.data)
       console.log(res.data)
     } catch (error) {
@@ -47,7 +47,7 @@ function App() {
   }
   async function Deleteuser(id) {
     try {
-      const res = await axios.delete(`https://student-record-plum.vercel.app/api/del/${id}`)
+      const res = await axios.delete(`http://localhost:5000/api/del/${id}`)
       setRefresh(!refresh)
       alert("user deleted")
     } catch (error) {
@@ -65,7 +65,7 @@ function App() {
   }
   async function Edituser() {
     try {
-      const res = await axios.put(`https://student-record-plum.vercel.app/api/new/${editid}`, form)
+      const res = await axios.put(`http://localhost:5000/api/new/${editid}`, form)
       setForm({ name: "", grade: "", subject: "" })
       setRefresh(!refresh)
       setPopup(false)
@@ -88,11 +88,13 @@ function App() {
   return (
     <>
     <div className='div'>
-      <h1>Employee Form</h1>
-      <input type="text" name='name' value={form.name} placeholder='Enter Your Name' onChange={handlechange} />
-      <input type="text" name='grade' value={form.grade} placeholder='Enter Your EmailId' onChange={handlechange} />
-      <input type="text" name='subject' value={form.subject} placeholder='Enter Your Phone. No' onChange={handlechange} />
-      <button onClick={() => Postuser()}>Submit</button>
+      <h1>🎓 Student Management System</h1>
+<p className="subtitle">Add, Edit & Manage Student Records</p>
+
+      <input type="text" name='name' value={form.name} placeholder='Enter Student Name' onChange={handlechange} />
+      <input type="text" name='grade' value={form.grade} placeholder='Enter Grade' onChange={handlechange} />
+      <input type="text" name='subject' value={form.subject} placeholder='Enter Subject' onChange={handlechange} />
+      <button onClick={() => Postuser()}>Save</button>
 
       <table  cellSpacing={0} cellPadding={20}>
         <th>Name</th>

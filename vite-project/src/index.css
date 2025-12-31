@@ -1,68 +1,176 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
+* {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Background */
+body {
   min-height: 100vh;
+  background: linear-gradient(135deg, #43cea2, #185a9d);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+/* Main Card */
+.div {
+  background: rgba(255, 255, 255, 0.95);
+  width: 95%;
+  max-width: 1100px;
+  padding: 35px;
+  border-radius: 22px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+/* Heading */
+.div h1 {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  color: #185a9d;
+}
+
+.subtitle {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #555;
+  font-size: 15px;
+}
+
+/* Form Row */
+.div input {
+  width: 28%;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  outline: none;
+  margin-right: 10px;
+  transition: 0.3s;
+}
+
+.div input:focus {
+  border-color: #43cea2;
+  box-shadow: 0 0 0 3px rgba(67, 206, 162, 0.25);
+}
+
+/* Submit Button */
+.div > button {
+  padding: 14px 24px;
+  background: linear-gradient(135deg, #43cea2, #185a9d);
+  color: white;
+  border: none;
+  border-radius: 12px;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  font-weight: 600;
+  transition: 0.3s;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+.div > button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* Table */
+table {
+  width: 100%;
+  margin-top: 30px;
+  border-collapse: collapse;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+th {
+  background: #185a9d;
+  color: #fff;
+  padding: 16px;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+td {
+  padding: 15px;
+  color: #333;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f8ff;
+}
+
+tr:hover {
+  background-color: #e1f0ff;
+}
+
+/* Action Buttons */
+td button {
+  padding: 7px 16px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-size: 14px;
+}
+
+td button:first-child {
+  background: #2dce89;
+}
+
+td button:last-child {
+  background: #f5365c;
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Modal Box */
+.modal-box {
+  background: white;
+  width: 420px;
+  padding: 30px;
+  border-radius: 20px;
+  animation: zoom 0.3s ease;
+}
+
+@keyframes zoom {
+  from {
+    transform: scale(0.85);
+    opacity: 0;
   }
-  a:hover {
-    color: #747bff;
+  to {
+    transform: scale(1);
+    opacity: 1;
   }
-  button {
-    background-color: #f9f9f9;
-  }
+}
+
+.modal-box h3 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #185a9d;
+}
+
+.modal-box input {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+/* Modal Buttons */
+.modal-box button {
+  width: 48%;
+  margin-right: 4%;
+  background: #185a9d;
+}
+
+.modal-box button:last-child {
+  margin-right: 0;
+  background: #adb5bd;
 }
